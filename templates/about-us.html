@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}Menu
+{% endblock title %}
+{% block body %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+
+   
+
+    /* About Us */
+
+
+    .abt-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .abt-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .abt-head {
+        font-size: 80px;
+        text-align: center;
+        margin-top: 75px;
+    }
+
+    .abt-cont {
+        font-size: 20px;
+        text-align: center;
+        width: 50%;
+        margin-top: 15px 0 15px 0;
+    }
+
+    /* Contact us */
+
+body{
+    background-color: rgb(234, 187, 115);
+}
+   
+   
+
+        /* Home Section */
+
+        .caption {
+            font-size: 20px;
+        }
+
+        /* About section */
+
+        .abt-head {
+            font-size: 80px;
+        }
+
+        .abt-cont {
+            font-size: 28px;
+            width: 80%;
+        }
+
+      
+    
+
+
+</style>
+<section class="abt-section" id="about-us">
+    <div class="abt-div reveal fade-pop">
+        <p class="abt-head">About Us</p>
+        <p class="abt-cont">
+            Welcome to Ignyte - The Beer Lounge, where we fuse the love of craft brews with a welcoming community
+            vibe. Dive into a curated selection of local and international craft beers in our cozy, contemporary
+            space. Whether you're a seasoned enthusiast or a curious newcomer, Ignyte is the perfect spot to savor
+            diverse flavors, share stories, and immerse yourself in the vibrant world of craft brewing. Cheers to
+            unforgettable experiences and the joy of great beer!
+        </p>
+        
+    </div>
+</section>
+{% endblock body %}

@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block title %}Reviews
+{% endblock title %}
+
+
+
+
+
+
+{% block body %}
+
+<style>
+
+  /* Styles for Reviews Page */
+  .container {
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 0 15px;
+  }
+
+  .review {
+    border: 2px solid black;
+    margin: 5px 100px 50px;
+    padding: 10px;
+  }
+
+  .review h4 {
+    margin-top: 0;
+  }
+
+  .review h5 {
+    margin-bottom: 10px;
+  }
+
+  .review h6 {
+    color: #888;
+  }
+
+  .form-floating {
+    position: relative;
+  }
+
+  .form-floating input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .form-floating label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    background-color: #fff;
+    padding: 0 5px;
+    color: #888;
+    pointer-events: none;
+    transition: top 0.3s, left 0.3s, transform 0.3s;
+  }
+
+  .form-floating input[type="text"]:focus + label,
+  .form-floating input[type="text"]:not(:placeholder-shown) + label {
+    top: 0;
+    left: 0;
+    font-size: 12px;
+    color: #333;
+    transform: translateY(-50%) scale(0.8);
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+</style>
+<!-- <h1>Reviews Page</h1> -->
+
+{% if user.is_authenticated %}
+<div class='container py-4 col-md-8' >
+
+    <h3 class='text-center mb-3'>Write a review</h3>
+
+    <form method='POST'  action='/reviews' class='row g-12' style ='display:flex; justify-content:center; align-items : center;'>
+      {% csrf_token %}
+      <div class="form-floating mb-3 col-md-6">
+        <input type="text" name='comment' id="form3Example3c" placeholder='Add a comment' class="form-control" maxlength='250' />
+        <label class="form-label" for="form3Example3c">Comment</label>
+        
+      </div>
+      <button type='submit' class='btn btn-primary col-md-2'>Publish</button>
+      
+    </form>
+    
+</div>
+{% endif %}
+<div class="container" style="padding: 5px;" >
+  <h2>Reviews :</h2>
+</div>
+
+{% for r in reviews%}
+  <div class="review" style="border: 2px solid black; margin: 5px 100px 50px; padding: 10px;">
+    
+    <h4 ><b>{{r.name}}</b></h4>
+    <h5 >{{r.comment}}</h5>
+    <h6 >{{r.created_at}}</h6>
+
+  </div>
+{% endfor %}
+
+{% endblock body %}
